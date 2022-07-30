@@ -25,7 +25,6 @@ async def root(request: Request) -> Response:
     await telegram.update_queue.put(
         Update.de_json(data=await request.json(), bot=telegram.bot)
     )
-    telegram.run_webhook()
     return Response()
 
 
